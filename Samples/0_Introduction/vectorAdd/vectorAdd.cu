@@ -164,7 +164,10 @@ int main(void) {
             cudaGetErrorString(err));
     exit(EXIT_FAILURE);
   }
-
+  // Print the sum of each element in C
+    for (int i = 0; i < numElements; ++i) {
+      printf("Sum of elements %d: %f + %f = %f\n", i, h_A[i],h_B[i], h_C[i]);
+    }
   // Verify that the result vector is correct
   for (int i = 0; i < numElements; ++i) {
     if (fabs(h_A[i] + h_B[i] - h_C[i]) > 1e-5) {
